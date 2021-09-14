@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context="eu.lucasblommers.todoapp.LoginActivity">
 
     <EditText
         android:id="@+id/etLoginEmail"
@@ -15,12 +15,14 @@
         android:layout_marginEnd="103dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/etLoginPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/email"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etLoginPassword"
@@ -31,35 +33,34 @@
         android:layout_marginEnd="103dp"
         android:layout_marginBottom="13dp"
         android:ems="10"
+        android:hint="@string/password"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLoginEmail"
-        android:hint="@string/password"/>
+        app:layout_constraintTop_toBottomOf="@+id/etLoginEmail" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="214dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="337dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="360dp"
         android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cbStayLoggedIn"
+        app:layout_constraintStart_toEndOf="@+id/btnLoginRegister"
         app:layout_constraintTop_toBottomOf="@+id/etLoginPassword" />
 
     <Button
         android:id="@+id/btnLoginRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="377dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="342dp"
         android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnLogin"
@@ -67,4 +68,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etLoginPassword"
         app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/cbStayLoggedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="342dp"
+        android:text="@string/stay_logged_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/etLoginPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>
