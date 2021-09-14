@@ -1,4 +1,4 @@
-package eu.lucasblommers.todoapp
+package eu.lucasblommers.todoapp.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +12,8 @@ import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.result.Result
 import eu.lucasblommers.todoapp.database.StayLoggedinDBHelper
 import eu.lucasblommers.todoapp.models.StayLoggedin
+import eu.lucasblommers.todoapp.utilities.UserUtility
+import eu.lucasblommers.todoapp.utilities.Utility
 import kotlinx.coroutines.GlobalScope
 import org.json.JSONObject
 
@@ -31,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
 
             if(stayLoggedinDBO != null){
                 if(userUtility.validateToken(this@LoginActivity, stayLoggedinDBO!!.token)){
-                    val intent = Intent(this@LoginActivity, TodoActivity::class.java)
+                    val intent = Intent(this@LoginActivity, TodoCollectionActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -101,7 +103,7 @@ class LoginActivity : AppCompatActivity() {
                                     }
                                 }
 
-                                val intent = Intent(this@LoginActivity, TodoActivity::class.java).apply {
+                                val intent = Intent(this@LoginActivity, TodoCollectionActivity::class.java).apply {
                                     putExtra("token", token)
                                     putExtra("user", user.toString())
                                 }

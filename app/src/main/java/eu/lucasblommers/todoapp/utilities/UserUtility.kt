@@ -1,4 +1,4 @@
-package eu.lucasblommers.todoapp
+package eu.lucasblommers.todoapp.utilities
 
 import android.app.Activity
 import android.content.Context

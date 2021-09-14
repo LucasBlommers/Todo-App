@@ -1,4 +1,4 @@
-package eu.lucasblommers.todoapp
+package eu.lucasblommers.todoapp.utilities
 
 import android.content.Context
 import android.widget.Toast

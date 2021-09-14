@@ -13,13 +13,16 @@
         android:theme="@style/Theme.TodoApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="eu.lucasblommers.todoapp.TodoActivity"
+            android:name="eu.lucasblommers.todoapp.activities.CreateTodoCollectionActivity"
             android:exported="true" />
         <activity
-            android:name="eu.lucasblommers.todoapp.RegisterActivity"
+            android:name="eu.lucasblommers.todoapp.activities.TodoCollectionActivity"
             android:exported="true" />
         <activity
-            android:name="eu.lucasblommers.todoapp.LoginActivity"
+            android:name="eu.lucasblommers.todoapp.activities.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name="eu.lucasblommers.todoapp.activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

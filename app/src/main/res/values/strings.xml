@@ -18,6 +18,12 @@
     <string name="no_password_match">The password\'s don\'t match</string>
     <string name="register_success">Account created!</string>
 
-    <!-- TodoActivity -->
+    <!-- TodoCollectionsActivity -->
     <string name="create_collection">Create Collection</string>
+    <string name="collections_failed">Failed to get collections</string>
+
+    <!-- CreateTodoCollection Activity -->
+    <string name="create">Create</string>
+    <string name="title">Title</string>
+    <string name="create_todo_collection_failed">Creating collection failed</string>
 </resources>
