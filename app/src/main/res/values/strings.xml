@@ -8,6 +8,7 @@
     <string name="register">Register</string>
     <string name="login_failed">Login failed!</string>
     <string name="stay_logged_in">Stay logged in</string>
+    <string name="validation_failed">Validation failed</string>
 
     <!-- RegisterActivity -->
     <string name="repeat_password">Repeat password</string>
@@ -17,5 +18,6 @@
     <string name="no_password_match">The password\'s don\'t match</string>
     <string name="register_success">Account created!</string>
 
-
+    <!-- TodoActivity -->
+    <string name="create_collection">Create Collection</string>
 </resources>

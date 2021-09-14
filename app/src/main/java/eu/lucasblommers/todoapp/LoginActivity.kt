@@ -17,6 +17,8 @@ import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
     private val utility = Utility()
+    private val userUtility = UserUtility()
+
     private var stayLoggedIn = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +30,10 @@ class LoginActivity : AppCompatActivity() {
             val stayLoggedinDBO = stayLoggedinDBHelper.loadStayLoggedIn(this@LoginActivity)
 
             if(stayLoggedinDBO != null){
-                val intent = Intent(this@LoginActivity, TodoActivity::class.java)
-                startActivity(intent)
+                if(userUtility.validateToken(this@LoginActivity, stayLoggedinDBO!!.token)){
+                    val intent = Intent(this@LoginActivity, TodoActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
 
@@ -70,7 +74,9 @@ class LoginActivity : AppCompatActivity() {
                             is Result.Failure -> {
                                 val ex = result.getException()
                                 println("LOGIN ERROR: $ex")
-                                utility.makeToast(applicationContext, getString(R.string.login_failed))
+                                this@LoginActivity.runOnUiThread(Runnable {
+                                    utility.makeToast(applicationContext, getString(R.string.login_failed))
+                                })
                             }
 
                             is Result.Success -> {

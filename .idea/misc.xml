@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.340625" />
+        <entry key="app/src/main/res/layout/activity_todo.xml" value="0.16485507246376813" />
       </map>
     </option>
   </component>
