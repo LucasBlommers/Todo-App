@@ -16,7 +16,7 @@ class UserUtility {
         val jsonToken = JSONObject()
         jsonToken.put("token", token)
 
-        val verifyAsync = "http://172.20.11.88:4050/user/verify"
+        val verifyAsync = "${BuildConfig.rest_url}/user/verify"
             .httpPost()
             .jsonBody(jsonToken.toString())
             .responseString{request, response, result ->

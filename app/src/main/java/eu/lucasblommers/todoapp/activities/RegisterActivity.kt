@@ -8,6 +8,7 @@ import com.example.todoapp.R
 import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.result.Result
+import eu.lucasblommers.todoapp.BuildConfig
 import eu.lucasblommers.todoapp.utilities.Utility
 import org.json.JSONObject
 
@@ -50,7 +51,7 @@ class RegisterActivity : AppCompatActivity() {
             userJSON.put("email", etRegisterEmail.text.toString())
             userJSON.put("password", etRegisterPassword.text.toString())
             println("Registering")
-            val registerAsync = "http://172.20.11.88:4050/user"
+            val registerAsync = "${BuildConfig.rest_url}/user"
                 .httpPost()
                 .jsonBody(userJSON.toString())
                 .responseString{request, response, result ->

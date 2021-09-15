@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import androidx.activity.result.contract.ActivityResultContracts
 import com.example.todoapp.R
 import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.github.kittinunf.fuel.httpPost
@@ -33,7 +32,7 @@ class CreateTodoCollectionActivity : AppCompatActivity() {
                 val jsonObject = JSONObject()
                 jsonObject.put("title", etCollectionTitle.text.toString())
 
-                val createTodoCollectionAsync = "http://172.20.11.88:4050/taskCollection"
+                val createTodoCollectionAsync = "${BuildConfig.rest_url}/taskCollection"
                     .httpPost()
                     .header("token", token!!)
                     .jsonBody(jsonObject.toString())

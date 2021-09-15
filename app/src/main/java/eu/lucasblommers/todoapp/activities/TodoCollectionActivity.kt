@@ -26,7 +26,7 @@ class TodoCollectionActivity : AppCompatActivity() {
     var rvTodoCollections:RecyclerView? = null
     var todoCollectionAdapter:TodoCollectionAdapter? = null
 
-    val createTodoCollection = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private val createTodoCollection = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         todoCollectionAdapter!!.loadCollections(loadTodoCollections())
     }
 
@@ -48,7 +48,7 @@ class TodoCollectionActivity : AppCompatActivity() {
             //Load TodoCollections
             val todoCollections = loadTodoCollections()
             rvTodoCollections = findViewById<RecyclerView>(R.id.rvTodoCollections)
-            todoCollectionAdapter = TodoCollectionAdapter(todoCollections!!)
+            todoCollectionAdapter = TodoCollectionAdapter(todoCollections!!, token!!)
 
             rvTodoCollections!!.layoutManager = LinearLayoutManager(this@TodoCollectionActivity)
             rvTodoCollections!!.adapter = todoCollectionAdapter
@@ -70,7 +70,7 @@ class TodoCollectionActivity : AppCompatActivity() {
 
         var todoCollections:MutableList<TodoCollection> = mutableListOf()
 
-        val loadCollectionAsync = "http://172.20.11.88:4050/taskCollections"
+        val loadCollectionAsync = "${BuildConfig.rest_url}/taskCollections"
             .httpGet()
             .header("token", token!!)
             .responseString{request, response, result ->

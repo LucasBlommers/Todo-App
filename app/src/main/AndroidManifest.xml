@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TodoApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name="eu.lucasblommers.todoapp.activities.TodosActivity"
+            android:exported="true" />
+        <activity
             android:name="eu.lucasblommers.todoapp.activities.CreateTodoCollectionActivity"
             android:exported="true" />
         <activity

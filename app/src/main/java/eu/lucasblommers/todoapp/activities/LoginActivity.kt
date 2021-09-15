@@ -68,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
                 json.put("email", etEmail.text)
                 json.put("password", etPassword.text)
 
-                val loginAsync = "http://172.20.11.88:4050/user/login"
+                val loginAsync = "${BuildConfig.rest_url}/user/login"
                     .httpPost()
                     .jsonBody(json.toString())
                     .responseString{request, response, result ->

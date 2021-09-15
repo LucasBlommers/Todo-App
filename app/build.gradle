@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.todoapp"
+        applicationId "eu.lucasblommers.todoapp"
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -16,12 +16,28 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    defaultConfig {
+
+        // defining the build date
+        buildConfigField "long", "BUILD_DATE", System.currentTimeMillis() + "L"
+        // define whether this build is a production build
+        buildConfigField "boolean", "IS_HOME", "true"
+        // note that to define a string you need to escape it
+        buildConfigField "String", "API_KEY", "\"my_api_key\""
+    }
+    flavorDimensions "version"
+    productFlavors {
+        home {
+            // override the productive flag for the flavor "prod"
+            buildConfigField "boolean", "IS_HOME", "true"
+            buildConfigField 'String', 'rest_url', "\"http://172.20.11.88\""
+        }
+        school {
+            // inherit default fields
+            resValue 'string', 'rest_url', ''
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

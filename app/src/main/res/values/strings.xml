@@ -26,4 +26,7 @@
     <string name="create">Create</string>
     <string name="title">Title</string>
     <string name="create_todo_collection_failed">Creating collection failed</string>
+
+    <!-- TodosActivity -->
+    <string name="loading_todos_failed">Loading todo\'s failed</string>
 </resources>
