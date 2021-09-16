@@ -20,7 +20,7 @@ class TodosActivity : AppCompatActivity() {
 
     val utility = Utility()
 
-    var collectionId:String? = null
+    var taskCollectionId:String? = null
     var rvTodos: RecyclerView? = null
     var todosAdapter:TodosAdapter? = null
     var token:String? = null
@@ -28,8 +28,13 @@ class TodosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todos)
 
-        collectionId = intent.getBundleExtra("collectionId").toString()
-        token = intent.getBundleExtra("token").toString()
+        intent
+        taskCollectionId = intent.extras!!.getString("collectionId")
+        token = intent.extras!!.getString("token")
+
+
+        println("CollectionId: $taskCollectionId Token: $token")
+
         //Load tasks
         GlobalScope.run{
             val todos = loadTodos()
@@ -50,8 +55,8 @@ class TodosActivity : AppCompatActivity() {
     fun loadTodos(): MutableList<Todo>{
         var todos:MutableList<Todo> = mutableListOf()
 
-        val loadTodosAsync = "${BuildConfig.rest_url}/task"
-            .httpGet()
+        val loadTodosAsync = "${BuildConfig.rest_url}/tasks"
+            .httpGet(listOf("taskCollectionId" to taskCollectionId))
             .header("token", token!!)
             .responseString{request, response, result ->
                 when(result){
@@ -65,7 +70,7 @@ class TodosActivity : AppCompatActivity() {
                     }
                     is Result.Success -> {
                         val todosJsonArray = JSONArray(result.value)
-
+                        println("TODOS ARRAY: $todosJsonArray")
                         //Convert the json array
                         for(i in 0 until todosJsonArray.length()){
                             val todoJson:JSONObject = todosJsonArray.getJSONObject(i)
@@ -73,7 +78,7 @@ class TodosActivity : AppCompatActivity() {
                             val id = todoJson.getString("_id")
                             val title = todoJson.getString("title")
                             val body = todoJson.getString("body")
-                            val collectionId = todoJson.getString("collectionId")
+                            val collectionId = todoJson.getString("taskCollectionId")
                             val owner = todoJson.getString("owner")
 
                             todos.add(Todo(id, title, body, collectionId,owner))

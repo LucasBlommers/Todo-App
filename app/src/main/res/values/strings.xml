@@ -29,4 +29,5 @@
 
     <!-- TodosActivity -->
     <string name="loading_todos_failed">Loading todo\'s failed</string>
+    <string name="create_todo">Create Todo</string>
 </resources>

@@ -28,11 +28,12 @@ class TodoCollectionAdapter(private var todoCollections: MutableList<TodoCollect
         holder.btnCollection.text = todoCollection.title
 
         holder.btnCollection.setOnClickListener {
-            val intent = Intent(it.context, TodosActivity::class.java)
-            val bundle = Bundle()
-            bundle.putString("collectionId", todoCollections[position]._id)
-            bundle.putString("token", token)
-            startActivity(it.context, intent, bundle)
+            val intent = Intent(it.context, TodosActivity::class.java).apply {
+                putExtra("collectionId", todoCollection._id)
+                putExtra("token", token)
+            }
+
+            startActivity(it.context, intent, null)
         }
     }
 

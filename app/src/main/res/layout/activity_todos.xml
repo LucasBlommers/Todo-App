@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eu.lucasblommers.todoapp.activities.TodosActivity">
+    tools:context="eu.lucasblommers.todoapp.activities.TodosActivity"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/btnCreateTodoActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/create_todo" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTodos"

@@ -30,7 +30,7 @@ android {
         home {
             // override the productive flag for the flavor "prod"
             buildConfigField "boolean", "IS_HOME", "true"
-            buildConfigField 'String', 'rest_url', "\"http://172.20.11.88\""
+            buildConfigField 'String', 'rest_url', "\"http://172.20.11.88:4050\""
         }
         school {
             // inherit default fields
